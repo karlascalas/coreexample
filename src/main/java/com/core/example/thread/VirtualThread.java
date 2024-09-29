@@ -18,4 +18,20 @@ public class VirtualThread {
         }
     }
 
+    public void threadExmple_01() {
+        // Create a virtual thread
+        Thread virtualThread = Thread.ofVirtual().start(() -> {
+            System.out.println("Hello from virtual thread!");
+        });
+
+        // Wait for the virtual thread to complete
+        try {
+            virtualThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Main thread finished.");
+    }
+
 }
